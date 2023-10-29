@@ -1,0 +1,143 @@
+
+
+{% extends 'human_resource/base.html' %}
+ 
+{% block picture%}
+
+{{ request.user.id|json_script:"user_id" }}
+{{request.user.username|json_script:"user_username" }}
+
+<div id="user-image"></div>
+
+<div id="div-upld"> upload new picture </div><br>
+
+<form id="form-upld" action="" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+ <!-- <input type="file" name="newpic" id="newpic"> -->
+     <input name="newpic" id="newpic" type="file"><br>
+     <input id="submit-upld" type="submit" value="Upload">
+</form>
+
+<!-- [{"name": "tamer", "secondname": "tamer", "lastname": "biniar", "department": "chemical", "
+job_title": "engineer", "date_hired": "2023-10-04", "experience": "5", "salay": "6660",
+ "document": "/media/static/photo_AqEurqH.jpg", "profile_picture": "/media/media/photo-2023_ahtljdj.jpg"}, {"name": "tamer", "secondname": "tamer", "lastname": "biniar", "department": "chemical", "job_title": "engineer", "date_hired": "2023-10-04",
+ "experience": "5", "salay": "6660", "document": "/media/media/photo.jpg", "profile_picture": "/media/media/photo-2023.jpg"}] -->
+
+{% endblock %}
+
+{% block sidebar-profile%}
+<div class="sidebar-index">
+    <div class="leave-main" id="leave-main">Go to leave request page </div> <br>
+    <div class="stat" id="stat"> your statstics here</div>
+    <div class="time-keeping" id="time-keeping"> time keeping </div>
+
+</div>
+{% endblock%}
+
+{% block message %}
+<!-- float and overflow have to be read -->
+<div class="dropdown">
+  <button class="dropbtn">Dropdown</button>
+  <div class="dropdown-content">
+      
+            <!-- <div class="user-dtl">
+                <button class="dtl-btn">USERS</button>
+                <div class="dtl-content">
+                     <div> user 1</div>
+          
+               </div>
+           </div> -->
+     
+    <!-- <a href="#">Link 2</a>
+    <a href="#">Link 3</a> -->
+  </div>
+</div>
+
+{% endblock %}
+
+{% block container %}
+
+
+<div class="leave" id="leave">
+         <button class="leave-btn-ask">ask for leave </button> <button class="leave-btn-back">back on work</button>
+          <form class="leave-form" id="leave-form" action="">
+              Reason: <input type="text" placeholder="state your reason for leave here"><br>
+              For how long: <input type="number" placeholder="only numbers"> <br>
+              date leave required: <input type="date" > <br>
+              <input type="submit" value="Send your leave form">
+          </form>
+         <div class="onleave">Your are on leave since ---</div>
+          <!-- <form action="">
+              Return date: <input type="date" placeholder="">"
+          </form> -->
+</div>
+
+<div class="time-keeping-div">
+       <div class="server-time"></div>
+       <div class="tr"></div>
+      <label class="switch">
+        <input type="checkbox">
+        <div class="slider"></div>
+      </label>
+
+</div>
+
+<div class="chart", id="chart">
+  <canvas id="myChart"></canvas>
+  <h4>total hours:</h4>
+  <h4>current salary:</h4>
+
+</div>
+
+{% endblock %}
+
+
+{% block sidebar %}
+   <div class="chat-div">
+
+   <!-- <div class="chat-container " id="chat-cont"> -->
+           <!-- <div class="chat-header" id="ch-header-id">chat</div> -->
+
+          <!-- <div class="scroll" autofocus> -->
+
+                    <!-- <div class="container">
+                      <img src="" alt="Avatar">
+                      <p>Hello. How are you today?</p>
+                      <span class="time-right">11:00</span>
+                    </div>
+                    
+                    <div class="container darker">
+                      <img src="" alt="Avatar" class="right">
+                      <p>Hey! I'm fine. Thanks for asking!</p>
+                          <span class="time-left">11:01</span>
+                  </div>
+
+                    <div class="container darker">
+                      <img src="" alt="Avatar" class="right">
+                      <p>Hey! I'm fine. Thanks for asking!</p>
+                      <span class="time-left">11:01</span>
+                  </div>
+
+                    <div class="container darker"autofocus>
+                      <img src="" alt="Avatar" class="right">
+                      <p>Hey! I'm fine. Thanks for asking!</p>
+                      <span class="time-left">11:01</span>
+                    </div> -->
+                      
+            <!-- </div> -->
+         
+            <!-- <form action="" class="chat-form" id="ch-form-id">
+              <textarea name="" id="ch-textarea-id" class="chat-textarea" cols="" rows="">type text...</textarea> <br>
+              <input type="submit" value="send" class="chat-submit" id="chat-submit-id">
+            </form>
+   </div> -->
+</div>
+  <div class="chat-flex" id="chat-flex">chat</div>
+
+
+{% endblock %}
+
+<!-- {% block scripts %}
+<script scr="{% static '/human_resource/index.js}"></script>
+{% endblock %} -->
+
